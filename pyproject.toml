@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "string-matcher"
+version = "0.0.1"
+description = "String Matcher"
+authors = ["hatala91"]
+packages = [{ include = "matcher" }]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+azureml = ">=0.2.7"
+azureml-core = "^1.36.0"
+azureml-dataset-runtime = "^1.36.0"
+azureml-train-core = "^1.36.0"
+numpy = "^1.21.4"
+pandas = "^1.3.4"
+pydantic = "^1.8.2"
+scikit-learn = "^1.0.1"
+tokenizers = "^0.10.3"
+torch = "^1.10.0"
+torch-geometric = "^2.0.2"
+torch-scatter = "^2.0.9"
+torch-sparse = ">=0.6.12"
+transformers = "^4.12.5"
+
+[tool.poetry.dev-dependencies]
+black = ">=22.1.0"
+flake8 = "*"
+ipykernel = "^6.6.0"
+ipywidgets = "^7.6.5"
+isort = "*"
+jupyter = "^1.0.0"
+mypy = "*"
+pytest = "^6.2.5"
