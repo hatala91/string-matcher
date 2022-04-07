@@ -1,5 +1,7 @@
 import pandas as pd
 
+from torch_geometric.data import Data
+
 
 def parse_entities(df: pd.DataFrame) -> pd.DataFrame:
     current = None
@@ -59,3 +61,15 @@ def train_test_split(
     test_df = all_words_df[~all_words_df["word"].isin(train_words)]
 
     return train_df, test_df
+
+
+def graph_from_string(string: str) -> Data:
+    unique_chars = set(string)
+    char_map = {char: idx for idx, char in enumerate(unique_chars)}
+
+    edge_index = [(char_map[a], char_map[b]) for a, b in zip(string[:-1], string[1:])]
+    
+    return Data(
+        x=tokenize(unique_chars),
+        edge_index=torch.tensor(edge_index, dtype=torch.long).t().contiguous()
+    )
